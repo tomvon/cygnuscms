@@ -1,16 +1,15 @@
+##CygnusCMS is a Python based CMS for Google App Engine.##
 
-
-#CygnusCMS is a Python based CMS for Google App Engine.#
-
-Features:
+###Features:###
 
 - Scaliability. Because CygnusCMS runs on Google's App Engine you never need to worry about scaling your website. GAE will do the work for you.
-
 - Ease of Use. CygnusCMS makes it easy to manage and publish your site and content.
-
 - Multi Image Uploading. Upload multiple images with one set of meta data for the group. Each image is uploaded as a single content item allowing user's a quick and easy way to add content with the flexibility to edit each item's meta data.
-
 - Open Source.
+
+###Instructions:###
+
+[Visit the Wiki for information on using and developing on CygnusCMS](https://github.com/tomvon/cygnuscms/wiki)
 
 Copyright (c) 2011 Tom Von Lahndorff, http://tomvl.com
 
