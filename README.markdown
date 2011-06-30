@@ -5,11 +5,28 @@
 - Scaliability. Because CygnusCMS runs on Google's App Engine you never need to worry about scaling your website. GAE will do the work for you.
 - Ease of Use. CygnusCMS makes it easy to manage and publish your site and content.
 - Multi Image Uploading. Upload multiple images with one set of meta data for the group. Each image is uploaded as a single content item allowing user's a quick and easy way to add content with the flexibility to edit each item's meta data.
-- Open Source.
+- Integration with Flickr, Twitter and Last.fm.
+- Open Source. It's Free!
 
 ###Instructions:###
 
 [Visit the Wiki for information on using and developing on CygnusCMS](https://github.com/tomvon/cygnuscms/wiki)
+
+###Screenshots###
+
+[Homepage](http://cygnuscms.s3.amazonaws.com/homepage-600.png)
+
+[Homepage](http://cygnuscms.s3.amazonaws.com/article-600.png)
+
+[Homepage](http://cygnuscms.s3.amazonaws.com/adminarticle-600.png)
+
+[Homepage](http://cygnuscms.s3.amazonaws.com/adminarticles-600.png)
+
+[Homepage](http://cygnuscms.s3.amazonaws.com/adminimage-600.png)
+
+[Homepage](http://cygnuscms.s3.amazonaws.com/adminimages-600.png)
+
+***
 
 Copyright (c) 2011 Tom Von Lahndorff, http://tomvl.com
 
