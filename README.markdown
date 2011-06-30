@@ -13,7 +13,7 @@
 [Visit the Wiki for information on using and developing on CygnusCMS](https://github.com/tomvon/cygnuscms/wiki)
 
 ###Screenshots###
-![Homepage](http://cygnuscms.s3.amazonaws.com/homepage.png)&nbsp;![Homepage Bottom](http://cygnuscms.s3.amazonaws.com/homepage2.png)&nbsp;![Article Page](http://cygnuscms.s3.amazonaws.com/article.png)&nbsp;![Admin : Article](http://cygnuscms.s3.amazonaws.com/admin-article.png)&nbsp;![Admin : Articles](http://cygnuscms.s3.amazonaws.com/admin-articles.png)&nbsp;![Admin : Images](http://cygnuscms.s3.amazonaws.com/admin-images.png)&nbsp;![Admin : Tweets](http://cygnuscms.s3.amazonaws.com/admin-tweets.png)&nbsp;![Admin : Flickr](http://cygnuscms.s3.amazonaws.com/admin-flickr.png)
+![Homepage](http://cygnuscms.s3.amazonaws.com/homepage-450.png)&nbsp;![Homepage Bottom](http://cygnuscms.s3.amazonaws.com/homepage2-450.png)&nbsp;![Article Page](http://cygnuscms.s3.amazonaws.com/article-450.png)&nbsp;![Admin : Article](http://cygnuscms.s3.amazonaws.com/admin-article-450.png)&nbsp;![Admin : Articles](http://cygnuscms.s3.amazonaws.com/admin-articles-450.png)&nbsp;![Admin : Images](http://cygnuscms.s3.amazonaws.com/admin-images-450.png)&nbsp;![Admin : Tweets](http://cygnuscms.s3.amazonaws.com/admin-tweets-450.png)&nbsp;![Admin : Flickr](http://cygnuscms.s3.amazonaws.com/admin-flickr-450.png)
 
 ***
 
