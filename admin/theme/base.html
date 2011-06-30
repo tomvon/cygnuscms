@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<title>{% block title %}{% endblock %} : {{ sitetitle }}</title>
+	<link type="text/css" href="/admin/static/jquery-ui-1.8.7.custom/development-bundle/themes/admintheme/jquery.ui.all.css" rel="stylesheet" />
+	<!--<link rel="stylesheet" type="text/css" href="/admin/static/jquery-ui-1.8.7.custom/development-bundle/demos/demos.css" />-->
+	<script type="text/javascript" src="/admin/static/jquery-ui-1.8.7.custom/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="/admin/static/jquery-ui-1.8.7.custom/js/jquery-ui-1.8.7.custom.min.js"></script>
+	<script type="text/javascript" src="/admin/static/jquery-ui-1.8.7.custom/development-bundle/ui/minified/jquery.ui.core.min.js"></script>
+	<script type="text/javascript" src="/admin/static/jquery-ui-1.8.7.custom/development-bundle/ui/minified/jquery.ui.widget.min.js"></script>
+	<script type="text/javascript" src="/admin/static/jquery-ui-1.8.7.custom/development-bundle/ui/minified/jquery.ui.button.min.js"></script>
+	<script type="text/javascript" src="/admin/static/jquery-ui-1.8.7.custom/development-bundle/ui/jquery.ui.selectmenu.js"></script>
+	<script type="text/javascript" src="/admin/static/js/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/admin/static/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/admin/static/js/jwysiwyg/jquery.wysiwyg.js"></script>
+	<script type="text/javascript" src="/admin/static/js/jquery.MultiFile.pack.js"></script>
+	<script type="text/javascript" src="/admin/static/js/main.js"></script>
+	<link rel="stylesheet" href="/admin/static/js/jwysiwyg/css/jquery.wysiwyg.css" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="/admin/static/css/style.css" />
+	{% block extrahead %}{% endblock %}
+	<script typr="text/javascript">
+		$(document).ready(function(){
+			$(window).load( function () {
+				setTimeout(function() { $('#msg').fadeOut(2000); }, 3000);
+			})
+			.end();
+			$( "#content" ).buttonset();
+			$("#content").validate({
+				highlight: function(element, errorClass, validClass) {
+					$(element).addClass(errorClass).removeClass(validClass);
+					$(element.form).find("label[for=" + element.id + "]")
+					.addClass(errorClass);
+				},
+				unhighlight: function(element, errorClass, validClass) {
+					$(element).removeClass(errorClass).addClass(validClass);
+					$(element.form).find("label[for=" + element.id + "]")
+					.removeClass(errorClass);
+			}
+			});
+			$("#expand").click(function(){
+				$("#formbox").show();
+				$("#expand").hide();
+			});
+			$("#close").click(function(){
+				$("#formbox").hide();
+				$("#expand").show();
+			});
+			$(".datepicker").datetimepicker({
+				ampm: true,
+				dateFormat: 'M dd yy',
+				timeFormat: 'hh:mm TT',
+				separator: ' '
+			});
+			$(function() {
+				$( "#license" ).selectmenu({width: 200});
+			});
+			$(function() {
+				$('#wysiwyg').wysiwyg({
+				css: '/admin/static/css/editor.css',
+				autoGrow: true,
+				initialContent : '',
+				controls: {
+					bold: { visible: true },
+					italic: { visible: true },
+					strikeThrough: { visible: true },
+					underline: { visible: true },
+					justifyLeft: { visible: true },
+					justifyCenter: { visible: true },
+					justifyRight: { visible: true },
+					justifyFull: { visible: true },
+					indent: { visible: true },
+					outdent: { visible: true },
+					subscript: { visible: false },
+					superscript: { visible: false },
+					undo: { visible: true },
+					redo: { visible: true },
+					insertOrderedList: { visible: true },
+					insertUnorderedList: { visible: true },
+					insertHorizontalRule: { visible: true },
+					createLink: { visible: true },
+					insertImage: { visible: true },
+					h1mozilla: { visible: true },
+					h2mozilla: { visible: true },
+					h3mozilla: { visible: true },
+					h1: { visible: true },
+					h2: { visible: true },
+					h3: { visible: true },
+					cut: { visible: false },
+					copy: { visible: false },
+					paste: { visible: false },
+					increaseFontSize: { visible: false },
+					decreaseFontSize: { visible: false },
+					html: { visible: true },
+					removeFormat: { visible: true },
+					insertTable: { visible: false },
+					}
+				});
+			});
+			$('#file').change(function(){
+				fileid = $('#file').val();
+				murl = '/admin/getmime?fileid=' + fileid;
+				$('#key').attr('value', fileid);
+				$.get(murl, function(data) {
+					$('#contenttype').attr('value', data);
+				});
+			});
+			$('#browseimages').click(function() {
+				$.get('/admin/browseimages', function(data) {
+					$('#imagebrowser').html(data);
+					$('#imagebrowser').show();
+				});
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div id="header-outer">
+		<div id="header">
+			<div class="loginout">Welcome {{ nickname }}! : <a href="/" target="_blank">View Your Site</a> : <a href="{{ url }}">{{ url_linktext }}</a></div>
+			<h1><a href="/">cygnus</a></h1>
+		</div><!-- end header -->
+	</div><!-- end header-outer -->
+
+	<div id="nav-outer">
+		<div id="nav">
+			<ul>
+				<li><a href="/admin"{% block navarticle %}{% endblock %}>Articles</a></li>
+				<li><a href="/admin/imageform"{% block navimages %}{% endblock %}>Images</a></li>
+				<li><a href="/admin/mediaform"{% block navmedia %}{% endblock %}>Media</a>
+				<li><a href="/admin/tweetsform"{% block navtweet %}{% endblock %}>Twitter</a>
+				<li><a href="/admin/flickrform"{% block navflickr %}{% endblock %}>Flickr</a>
+				<li><a href="/admin/siteproperties"{% block navprops %}{% endblock %}>Properties</a></li>
+				<li><a href="/admin/extend"{% block navextend %}{% endblock %}>Extend</a>
+			</ul>
+		</div>
+	</div>
+
+	<div id="content-outer">
+		<div id="content">
+			{% if msg %}<div id="msg">{{ msg }}</div>{% endif %}
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+
+	<div id="footer-outer">
+		<div id="footer">
+			CygnusCMS
+		</div>
+	</div>
+
+</body>
+</html>

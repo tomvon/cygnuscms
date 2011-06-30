@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Admin : Manage Content{% endblock %}
+{% block navmanage %} class="on"{% endblock %}
+{% block extrahead %}
+<script type="text/javascript" src="/admin/static/js/jquery.tablesorter.min.js"></script>
+<script>
+$(document).ready(function()
+    {
+        $("#sort").tablesorter();
+    }
+);
+</script>
+{% endblock %}
+
+	{% block content %}
+
+		<table id="sort" class="tablesorter" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Type</th>
+				<th>PubDate</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Status</th>
+				<th>Privacy</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for c in content %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>
+				{% ifequal c.type "article" %}
+					<span class="ui-icon ui-icon-document"></span>
+				{% endifequal %}
+				{% ifequal c.type "image" %}
+					<img src="{{ c.furl }}=s20-c" class="icon" />
+				{% endifequal %}
+				{% ifequal c.type "audio" %}
+					<span class="ui-icon ui-icon-audio"></span>
+				{% endifequal %}
+				{% ifequal c.type "video" %}
+					<span class="ui-icon ui-icon-video"></span>
+				{% endifequal %}
+				{{ c.type|capfirst }}
+			</td>
+			<td>{{ c.pubdate|date:"M d Y h:i A" }}</td>
+			<td><a href="/admin/editcontent?ekey={{ c.key }}">{{ c.title|truncatewords:5 }}</a></td>
+			<td>{% if c.description %}{{ c.description|truncatewords:7 }}{% endif %}</td>
+			<td class="{% ifequal c.status "published" %}bggreen{% else %}bgred{% endifequal %}">{{ c.status }}</td>
+			<td class="{% ifequal c.privacy "public" %}bggreen{% else %}bgred{% endifequal %}">{{ c.privacy }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+
+		{% if start %}<a href="/admin/managecontent{% ifnotequal start "10" %}?start={{ start|add:"-10" }}{% endifnotequal %}">Previous 10</a>&nbsp;&nbsp;&nbsp;{% endif %}
+		{% ifequal more "yes" %}<a href="/admin/managecontent?start={% if start %}{{ start|add:"10" }}{% else %}10{% endif %}">Next 10</a>{% endifequal %}
+
+	{% endblock %}

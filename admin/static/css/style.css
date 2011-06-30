@@ -1,0 +1,393 @@
+/* Standard HTML Tags */
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	background: #666666;
+	color: #444444;
+}
+
+a {
+	color: #FFA72D;
+}
+
+a:visited {
+	color: #E99118;
+}
+
+hr {
+	height: 1px;
+	border: 0px;
+	background: #dddddd;
+	color: #dddddd;
+	margin: 10px 0px 10px 0px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	vertical-align: top;
+	padding: 5px;
+	font-size: 12px;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+input, textarea {
+	font-family: sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	padding: 5px;
+	background: #eeeeee;
+}
+
+img {
+	border: 0px;
+}
+
+
+/* Main Layout */
+
+
+#header-outer {
+	background: #000000;
+	height: 60px;
+	overflow: hidden;
+}
+
+#header {
+	padding: 0px 10px 0px 10px;
+	height: 60px;
+	width: 940px;
+	padding: 0px;
+	margin: 0px auto 100px auto;
+	font-size: 14px;
+	line-height: 60px;
+	color: #999999;
+	overflow: hidden;
+	background: url(../images/cygnus.png) top left no-repeat;
+}
+
+#header h1 {
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+
+#header a {
+	color: #D58E2A;
+}
+
+#nav-outer {
+	background: #444444 url(../images/navbg.png);
+	height: 40px;
+	overflow: hidden;
+}
+
+#nav {
+	overflow: hidden;
+	height: 40px;
+	width: 940px;
+	padding: 0px;
+	margin: 0px auto 0px auto;
+}
+
+#nav ul {
+	margin: 10px;
+	padding: 0px;
+}
+
+#nav ul li {
+	list-style-type: none;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+#nav li a {
+	padding: 10px 20px 10px 20px;
+	background: #666666 url(../images/navoff.png);
+	margin: 0px 2px 0px 0px;
+	height: 30px;
+	line-height: 30px;
+	color: #cccccc;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#nav li a:hover, #nav li a.on {
+	background: #A06800 url(../images/navon.png);
+	color: #ffffff;
+}
+
+#content-outer {
+	background: #ffffff;
+	overflow: hidden;
+}
+
+#content {
+	width: 920px;
+	padding: 10px;
+	margin: 0px auto 0px auto;
+	overflow: hidden;
+}
+
+#leftcol {
+	float: left;
+	width: 530px;
+	margin: 0px;
+	padding: 10px;
+}
+
+#rightcol {
+	float: left;
+	width: 340px;
+	margin: 0px;
+	padding: 10px;
+	border-left: solid 1px #cccccc;
+}
+
+#footer {
+	width: 880px;
+	padding: 30px;
+	margin: 0px auto 0px auto;
+	color: #bbbbbb;
+}
+
+#footer a {
+	color: #CCB18C;
+}
+
+#msg {
+	padding: 5px;
+	margin: 0px 0px 5px -300px;
+	background: #ffeedd;
+	border: solid 1px #FFA72D;
+	width: 600px;
+	position: fixed;
+	top: 40px;
+	left: 50%;
+	text-align: center;
+	z-index: 2;
+	opacity: .8;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+}
+
+
+<<<<<<< HEAD
+=======
+/* Other */
+
+
+.box {
+	overflow: hidden;
+}
+
+.error {
+	background: #ffcccc;
+}
+
+label.error {
+	background: none;
+	color: #ff0000;
+	padding-left: 10px;
+	vertical-align: top;
+}
+
+input.bigbutton {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px;
+}
+
+.loginout {
+	float: right;
+}
+
+td.rowname {
+	text-align: right;
+}
+
+.bggreen {
+	background: #eeffee;
+}
+
+.bgred {
+	background: #ffeeee;
+}
+
+.green {
+	color: #009900;
+}
+
+.red {
+	color: #cc0000;
+}
+
+.icon {
+	float: left;
+	margin: 0px 3px 0px 0px;
+}
+
+>>>>>>> extend
+
+/* JQuery UI */
+
+.ui-icon {
+	display: block;
+	float: left;
+}
+
+
+/* CSS for timepicker.
+Thanks to Trent Richardson.
+http://trentrichardson.com/examples/timepicker/ */
+
+
+.ui-timepicker-div .ui-widget-header{
+	margin-bottom: 8px;
+}
+
+.ui-timepicker-div dl{
+	text-align: left;
+}
+
+.ui-timepicker-div dl dt{
+	height: 25px;
+}
+
+.ui-timepicker-div dl dd{
+	margin: -25px 0 10px 65px;
+}
+
+.ui-timepicker-div td {
+	font-size: 90%;
+}
+
+
+/* Tabs */
+
+
+.ui-tabs .ui-tabs-hide {
+    display: none;
+}
+
+#tabs {
+	border: 0px;
+}
+
+/* tablesorter */
+
+table.tablesorter {
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #eeeeee;
+	border: solid 1px #dddddd;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url(../images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	background-color: #FFF;
+	vertical-align: top;
+	border: solid 1px #dddddd;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../images/asc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../images/desc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #ffe5c1;
+}
+
+
+/* Other */
+
+
+.error {
+	background: #ffcccc;
+}
+
+label.error {
+	background: none;
+	color: #ff0000;
+	padding-left: 10px;
+	vertical-align: top;
+}
+
+input.bigbutton {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px;
+}
+
+.loginout {
+	float: right;
+}
+
+td.rowname {
+	text-align: right;
+}
+
+.bggreen, tbody tr td.bggreen {
+	background-color: #eeffee;
+}
+
+.bgred, tbody tr td.bgred {
+	background-color: #ffeeee;
+}
+
+.green {
+	color: #009900;
+}
+
+.red {
+	color: #cc0000;
+}
+
+.icon {
+	float: left;
+	margin: 0px 3px 0px 0px;
+}
+
+#imagebrowser{
+	height: 200px;
+	overflow: auto;
+}
+
+.preview {
+	float: left;
+	margin: 0px 5px 5px 0px;
+}

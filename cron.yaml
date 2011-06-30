@@ -1,0 +1,8 @@
+cron:
+- description: Get Tweets
+  url: /admin/gettweets
+  schedule: every 15 minutes
+
+- description: Get Photos
+  url: /admin/getphotos
+  schedule: every 15 minutes

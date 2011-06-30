@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ pageid }} : Photos{% endblock %}
+
+	{% block content %}
+
+	<div id="fourcol">
+		<div class="title">
+			<h2><a href="http://www.flickr.com/photos/tomvon/"><img src="/static/themes/{{ themeid }}/icons/icon-flickr-16.png" alt="Tom at Flickr" class="smicon" />Flickr</a></h2>
+			<p>{{ pageid }} Photos</p>
+		</div>
+		{% for photo in photos reversed %}
+		<div class="photo_lg" style="background: url({{ photo.url }}_z.jpg) center center;">
+			<div class="caption">
+			 {{ photo.title }} : Uploaded {{ photo.date|date:"N jS Y" }} : <a href="http://www.flickr.com/photos/tomvon/{{ photo.id }}/">View At Flickr.com</a>
+			</div>
+		</div>
+		{% endfor %}
+		<div id="comments">
+			<script>
+			var idcomments_acct = 'c2dfb06d2d8a773117216bdac9e6e1ae';
+			var idcomments_post_id;
+			var idcomments_post_url;
+			</script>
+			<span id="IDCommentsPostTitle" style="display:none"></span>
+			<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+		</div>
+	</div>
+
+	{% include "sidebar.html" %}
+
+	{% endblock %}

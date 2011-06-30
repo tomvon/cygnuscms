@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Admin : Manage Images{% endblock %}
+{% block navtweet %} class="on"{% endblock %}
+{% block extrahead %}
+
+{% endblock %}
+
+	{% block content %}
+
+		<table id="sort" class="tablesorter" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Tweet</th>
+				<th>Date</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for c in content %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ c.content }}</td>
+			<td>{{ c.date|date:"M d Y h:i A" }}</td>
+			<td><a href="/admin/delete?type=tweet&ekey={{ c.key }}&title={{ c.content|truncatewords:5 }}" onclick="return genalert('Are you sure you wanto to delete {{ c.content|truncatewords:5 }}?');">Delete</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+
+		{% if start %}<a href="/admin/tweetsform{% ifnotequal start "10" %}?start={{ start|add:"-10" }}{% endifnotequal %}">Previous 10</a>&nbsp;&nbsp;&nbsp;{% endif %}
+		{% ifequal more "yes" %}<a href="/admin/tweetsform?start={% if start %}{{ start|add:"10" }}{% else %}10{% endif %}">Next 10</a>{% endifequal %}
+
+	{% endblock %}

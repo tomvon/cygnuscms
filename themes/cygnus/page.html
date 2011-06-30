@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+	{% block content %}
+
+	<div class="page">
+		{% for art in article %}
+			{% for image in art.rimages %}{% if forloop.first %}
+			<div class="img">
+				<img src="{{ image.furl }}=s600" width="600" height="{{ 600|multiply:image.prop }}" alt="{{ image.title }}" />
+				<div class="caption">
+					<p>{{ image.title }}</p>
+				</div>
+			</div>
+			{% endif %}{% endfor %}
+			<div class="text">
+				<h2>{{ art.title }}</h2>
+				{{ art.text }}
+			</div>
+			{% for image in art.rimages %}{% if not forloop.first %}
+			<div class="img">
+				<img src="{{ image.furl }}=s600" width="600" height="{{ 600|multiply:image.prop }}" alt="{{ image.title }}" />
+				<div class="caption">
+					<p>{{ image.title }}</p>
+				</div>
+			</div>
+			{% endif %}{% endfor %}
+		{% endfor %}
+	</div>
+
+	<div class="sidebar">
+		{% for a in articles %}
+		<div class="box{% if forloop.counter|divisibleby:2 %} endbox{% endif %}" style="background-image: url({% for image in a.rimages %}{% if forloop.first %}{{ image.furl }}{% endif %}{% endfor %}=s150-c)">
+			<div class="caption">
+				<h2><a href="/page/{% if a.slug %}{{ a.slug }}{% else %}{{ a.key }}{% endif %}">{{ a.title }}</a></h2>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	{% endblock %}

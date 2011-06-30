@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block title %}Admin : Manage Article{% endblock %}
+{% block navarticle %} class="on"{% endblock %}
+{% block extrahead %}
+
+{% endblock %}
+
+	{% block content %}
+
+		{% if not ekey %}
+		<div id="expandbutton">
+			<input type="button" id="expand" value="Add Article" />
+		</div>
+		{% endif %}
+
+		<div id="formbox"{% if not ekey %} style="display: none;"{% endif %}>
+
+		{% if not ekey %}
+		<div id="closebutton">
+			<input type="button" id="close" value="Hide Form" />
+		</div>
+		{% endif %}
+
+		<form action="/admin/managearticle" id="form" method="post" enctype="multipart/form-data">
+			<div id="leftcol">
+			<table>
+				<tr>
+					<td class="rowname"><label class="red">Title</label></td>
+					<td><input type="text" name="title" size="45" value="{{ title }}" class="required" /></td>
+				</tr>
+				<tr>
+					<td class="rowname"><label>Full Text</label></td>
+					<td><textarea name="text" cols="50" rows="5" id="wysiwyg">{{ text }}</textarea></td>
+				</tr>
+				<tr>
+					<td class="rowname"><label>Images</label></td>
+					<td><input type="hidden" name="images" id="images" size="45" value="{{ images }}" />
+						<div id="rimages">
+							{% for image in rimages %}
+							<div class="preview" id="{{ image.key }}">
+							<a href="#" onclick="return removeimage('{{ image.key }}');"><img src="{{ image.furl }}=s80-c" width="80" height="80" alt="{{ image.title }}" style="display: visible;" /></a>
+							</div>
+							{% endfor %}
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="/admin/browseimages" id="browseimages">Add Images</a></td>
+					<td><div id="imagebrowser" style="display: none;"></div></td>
+				</tr>
+				<tr>
+					<td class="rowname"><label>Media</label></td>
+					<td><input type="media" name="media" size="45" value="{% for med in media %}{{ med }}{% if not forloop.last %},{% endif %}{% endfor %}" /></td>
+				</tr>
+				<tr>
+					<td class="rowname"><label class="red">Tags</label></td>
+					<td><input type="text" name="tags" size="40" value="{% for tag in tags %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}" class="required" /></td>
+				</tr>
+			</table>
+			</div>
+
+			<div id="rightcol">
+			<table>
+				<tr>
+					<td class="rowname"><label class="red">Pub Date</label></td>
+					<td><input type="text" name="pubdate" size="20" value="{% if pubdate  %}{{ pubdate|date:"M d Y h:i A" }}{% else %}{% now "M d Y h:i A" %}{% endif %}" class="datepicker required" /></td></td>
+				</tr>
+				<tr>
+					<td class="rowname"><label class="red">Featured</label></td>
+					<td>
+						<input type="radio" name="featured" id="featuredno" value="notfeatured"{% if featured %}{% ifequal featured "notfeatured" %} checked="checked"{% endifequal %}{% else %} checked="checked"{% endif %} /><label for="featuredno">No</label>
+						<input type="radio" name="featured" id="featuredyes" value="featured"{% ifequal featured "featured" %} checked="checked"{% endifequal %} /><label for="featuredyes">Yes</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowname"><label class="red">Status</label></td>
+					<td>
+						<input type="radio" name="status" id="statuspublished" value="published"{% if status %}{% ifequal status "published" %} checked="checked"{% endifequal %}{% else %} checked="checked"{% endif %} /><label for="statuspublished">Published</label>
+						<input type="radio" name="status" id="statusunpublished" value="unpublished"{% ifequal status "unpublished" %} checked="checked"{% endifequal %} /><label for="statusunpublished">Unpublished</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowname"><label class="red">Access</label></td>
+					<td>
+						<input type="radio" name="acl" id="aclpublic" value="public-read"{% if acl %}{% ifequal acl "public-read" %} checked="checked"{% endifequal %}{% else %} checked="checked"{% endif %} /><label for="aclpublic">Public-Read</label>
+						<input type="radio" name="acl" id="aclprivate" value="private"{% ifequal acl "private" %} checked="checked"{% endifequal %} /><label for="aclprivate">Private</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowname"><label class="red">License</label></td>
+					<td>
+						<select name="license" id="license">
+							<option value="none"{% ifequal license "none" %} selected="selected"{% endifequal %} >None</option>
+							<option value="copyrighted"{% ifequal license "copyrighted" %} selected="selected"{% endifequal %} >Copyrighted</option>
+							<option value="fdl"{% ifequal license "fdl" %} selected="selected"{% endifequal %} >FDL</option>
+							<option value="cc by"{% ifequal license "cc by" %} selected="selected"{% endifequal %} >cc by</option>
+							<option value="cc by-sa"{% ifequal license "cc by-sa" %} selected="selected"{% endifequal %} >cc by-sa</option>
+							<option value="cc by-nd"{% ifequal license "cc by-nd" %} selected="selected"{% endifequal %} >cc by-nd</option>
+							<option value="cc by-nc"{% ifequal license "cc by-nc" %} selected="selected"{% endifequal %} >cc by-nc</option>
+							<option value="cc by-nc-sa"{% ifequal license "cc by-nc-sa" %} selected="selected"{% endifequal %} >cc by-nc-sa</option>
+							<option value="cc by-nc-nd"{% ifequal license "cc by-nc-nd" %} selected="selected"{% endifequal %} >cc by-nc-nd</option>
+							<option value="cc by-nc"{% ifequal license "cc by-nc" %} selected="selected"{% endifequal %} >cc by-nc</option>
+						</select>
+					</td></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="hidden" name="type" value="article" />
+						<input type="hidden" name="content-type" id="contenttype" value="text/html" />
+						<input type="hidden" name="ekey" value="{% if ekey %}{{ ekey }}{% else %}new{% endif %}" />
+						<input type="submit" class="bigbutton" value="{% if ekey %}Edit{% else %}Add{% endif %} Content">
+					</td>
+				</tr>
+			</table>
+			</div>
+
+		</form>
+		{% if not ekey %}<hr />{% endif %}
+		</div>
+
+		{% if not ekey %}
+
+		<table id="sort" class="tablesorter" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>PubDate</th>
+				<th>Title</th>
+				<th>Text</th>
+				<th>Status</th>
+				<th>Privacy</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for c in content %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ c.pubdate|date:"M d Y h:i A" }}</td>
+			<td><a href="/admin/editcontent?ekey={{ c.key }}">{{ c.title|truncatewords:5 }}</a></td>
+			<td>{% if c.text %}{{ c.text|striptags|truncatewords:7 }}{% endif %}</td>
+			<td class="{% ifequal c.status "published" %}bggreen{% else %}bgred{% endifequal %}">{{ c.status }}</td>
+			<td class="{% ifequal c.privacy "public" %}bggreen{% else %}bgred{% endifequal %}">{{ c.privacy }}</td>
+			<td><a href="/admin/delete?type=article&ekey={{ c.key }}&title={{ c.title|truncatewords:5 }}" onclick="return genalert('Are you sure you wanto to delete {{ c.title|truncatewords:5 }}?');">Delete</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+
+		{% if start %}<a href="/admin/managecontent{% ifnotequal start "10" %}?start={{ start|add:"-10" }}{% endifnotequal %}">Previous 10</a>&nbsp;&nbsp;&nbsp;{% endif %}
+		{% ifequal more "yes" %}<a href="/admin/managecontent?start={% if start %}{{ start|add:"10" }}{% else %}10{% endif %}">Next 10</a>{% endifequal %}
+
+		{% endif %}
+
+	{% endblock %}

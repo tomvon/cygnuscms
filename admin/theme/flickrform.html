@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Admin : Manage Images{% endblock %}
+{% block navflickr %} class="on"{% endblock %}
+{% block extrahead %}
+
+{% endblock %}
+
+	{% block content %}
+
+		<table id="sort" class="tablesorter" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Photo</th>
+				<th>Title</th>
+				<th>Date</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for c in content %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td><img src="{{ c.url }}_s.jpg" width="40" height="40" /></td>
+			<td>{{ c.title }}</td>
+			<td>{{ c.date|date:"M d Y h:i A" }}</td>
+			<td><a href="/admin/delete?type=flickr&ekey={{ c.key }}&title={{ c.title|truncatewords:5 }}" onclick="return genalert('Are you sure you wanto to delete {{ c.title|truncatewords:5 }}?');">Delete</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+
+		{% if start %}<a href="/admin/flickrform{% ifnotequal start "10" %}?start={{ start|add:"-10" }}{% endifnotequal %}">Previous 10</a>&nbsp;&nbsp;&nbsp;{% endif %}
+		{% ifequal more "yes" %}<a href="/admin/flickrform?start={% if start %}{{ start|add:"10" }}{% else %}10{% endif %}">Next 10</a>{% endifequal %}
+
+	{% endblock %}

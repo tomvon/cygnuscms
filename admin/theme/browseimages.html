@@ -1,0 +1,10 @@
+
+{% for image in images %}
+
+<div class="preview">
+<a href="#" onclick="return addimage('{{ image.key }}','{{ image.furl }}');">
+<img src="{{ image.furl }}=s80-c" id="{{ image.key }}" />
+</a>
+</div>
+
+{% endfor %}

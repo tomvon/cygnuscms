@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Admin : Manage Site Properties{% endblock %}
+{% block navprops %} class="on"{% endblock %}
+
+	{% block content %}
+
+		<form action="/admin/updateproperties" id="form" method="post">
+			<table>
+				<tr>
+					<td><label>Site Title</label></td>
+					<td><input type="text" name="sitetitle" size="45" value="{{ sitetitle}}" /></td>
+				</tr>
+				<tr>
+					<td><label>Site Description</label></td>
+					<td><textarea name="sitedescription" cols="45" rows="3">{{ sitedescription }}</textarea></td>
+				</tr>
+				<tr>
+					<td><label>Email Address<br />(used for Gravatar)</label></td>
+					<td><input type="text" name="email" size="45" value="{{ email}}" /></td>
+				</tr>
+				<tr>
+					<td><label>Twitter Username</label></td>
+					<td><input type="text" name="twitteruser" size="45" value="{{ twitteruser }}" /></td>
+				</tr>
+				<tr>
+					<td><label>Flickr Username</label></td>
+					<td><input type="text" name="flickruser" size="45" value="{{ flickruser }}" /></td>
+				</tr>
+				<tr>
+					<td><label>Flickr API Key</label></td>
+					<td><input type="text" name="flickrapikey" size="45" value="{{ flickrapikey }}" /></td>
+				</tr>
+				<tr>
+					<td><label>Last.fm Username</label></td>
+					<td><input type="text" name="lastfmuser" size="45" value="{{ lastfmuser }}" /></td>
+				</tr>
+				<tr>
+					<td><label>Last.fm API Key</label></td>
+					<td><input type="text" name="lastfmapikey" size="45" value="{{ lastfmapikey }}" /></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="submit" value="Update Site Properties"></td>
+				</tr>
+			</table>
+		</form>
+
+	{% endblock %}
