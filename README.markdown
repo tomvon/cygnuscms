@@ -14,17 +14,17 @@
 
 ###Screenshots###
 
-![Homepage](http://cygnuscms.s3.amazonaws.com/homepage-600.png)
+![Homepage](http://cygnuscms.s3.amazonaws.com/cygnuscms-homepage-600.png)
 
-![Article Page](http://cygnuscms.s3.amazonaws.com/article-600.png)
+![Article Page](http://cygnuscms.s3.amazonaws.com/cygnuscms-article-600.png)
 
-![Admin : Article](http://cygnuscms.s3.amazonaws.com/adminarticle-600.png)
+![Admin : Article](http://cygnuscms.s3.amazonaws.com/cygnuscms-adminarticle-600.png)
 
-![Admin : Articles](http://cygnuscms.s3.amazonaws.com/adminarticles-600.png)
+![Admin : Articles](http://cygnuscms.s3.amazonaws.com/cygnuscms-adminarticles-600.png)
 
-![Admin : Image](http://cygnuscms.s3.amazonaws.com/adminimage-600.png)
+![Admin : Image](http://cygnuscms.s3.amazonaws.com/cygnuscms-adminimage-600.png)
 
-![Admin : Images](http://cygnuscms.s3.amazonaws.com/adminimages-600.png)
+![Admin : Images](http://cygnuscms.s3.amazonaws.com/cygnuscms-adminimages-600.png)
 
 ***
 
