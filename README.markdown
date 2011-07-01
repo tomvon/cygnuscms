@@ -17,15 +17,19 @@ CygnusCMS is currently in a beta state. Some features are not completetly implme
 ###Screenshots###
 
 Homepage 1 | Homepage 2
+
 ![Homepage](http://cygnuscms.s3.amazonaws.com/homepage-425.png)&nbsp;&nbsp;![Homepage Bottom](http://cygnuscms.s3.amazonaws.com/homepage2-425.png)
 
 Article Page | Admin : Article
+
 ![Article Page](http://cygnuscms.s3.amazonaws.com/article-425.png)&nbsp;&nbsp;![Admin : Article](http://cygnuscms.s3.amazonaws.com/admin-article-425.png)&nbsp;
 
 Admin : Article | Admin Images
+
 ![Admin : Articles](http://cygnuscms.s3.amazonaws.com/admin-articles-425.png)&nbsp;&nbsp;![Admin : Images](http://cygnuscms.s3.amazonaws.com/admin-images-425.png)&nbsp;
 
 Admin : Tweets | Admin : Flickr
+
 ![Admin : Tweets](http://cygnuscms.s3.amazonaws.com/admin-tweets-425.png)&nbsp;&nbsp;![Admin : Flickr](http://cygnuscms.s3.amazonaws.com/admin-flickr-425.png)
 
 ***
