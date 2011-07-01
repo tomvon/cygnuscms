@@ -1,4 +1,4 @@
-##CygnusCMS is a Python based CMS for Google App Engine.##
+##CygnusCMS is a Python based CMS for Google App Engine. (Beta)##
 
 ###Features:###
 
@@ -8,12 +8,25 @@
 - Integration with Flickr, Twitter and Last.fm.
 - Open Source. It's Free!
 
+CygnusCMS is currently in a beta state. Some features are not completetly implmented yet, however basic functionality is working. You can create and save article and images, grab tweets and flickr photos and the basic template works as well. Feedback and contributions are welcome. Enjoy!
+
 ###Instructions:###
 
 [Visit the Wiki for information on using and developing on CygnusCMS](https://github.com/tomvon/cygnuscms/wiki)
 
 ###Screenshots###
-![Homepage](http://cygnuscms.s3.amazonaws.com/homepage-425.png)&nbsp;![Homepage Bottom](http://cygnuscms.s3.amazonaws.com/homepage2-425.png)&nbsp;![Article Page](http://cygnuscms.s3.amazonaws.com/article-425.png)&nbsp;![Admin : Article](http://cygnuscms.s3.amazonaws.com/admin-article-425.png)&nbsp;![Admin : Articles](http://cygnuscms.s3.amazonaws.com/admin-articles-425.png)&nbsp;![Admin : Images](http://cygnuscms.s3.amazonaws.com/admin-images-425.png)&nbsp;![Admin : Tweets](http://cygnuscms.s3.amazonaws.com/admin-tweets-425.png)&nbsp;![Admin : Flickr](http://cygnuscms.s3.amazonaws.com/admin-flickr-425.png)
+
+Homepage 1 | Homepage 2
+![Homepage](http://cygnuscms.s3.amazonaws.com/homepage-425.png)&nbsp;&nbsp;![Homepage Bottom](http://cygnuscms.s3.amazonaws.com/homepage2-425.png)
+
+Article Page | Admin : Article
+![Article Page](http://cygnuscms.s3.amazonaws.com/article-425.png)&nbsp;&nbsp;![Admin : Article](http://cygnuscms.s3.amazonaws.com/admin-article-425.png)&nbsp;
+
+Admin : Article | Admin Images
+![Admin : Articles](http://cygnuscms.s3.amazonaws.com/admin-articles-425.png)&nbsp;&nbsp;![Admin : Images](http://cygnuscms.s3.amazonaws.com/admin-images-425.png)&nbsp;
+
+Admin : Tweets | Admin : Flickr
+![Admin : Tweets](http://cygnuscms.s3.amazonaws.com/admin-tweets-425.png)&nbsp;&nbsp;![Admin : Flickr](http://cygnuscms.s3.amazonaws.com/admin-flickr-425.png)
 
 ***
 
