@@ -54,6 +54,12 @@
 						{% endif %}
 					</td>
 				</tr>
+				{% if file %}
+				<tr>
+					<td class="rowname">URL</td>
+					<td><input type="text" size="45" value="/file/{{ file }}" onclick="this.select()"></td>
+				</tr>
+				{% endif %}
 				<tr>
 					<td class="rowname"><label class="red">Tags</label></td>
 					<td><input type="text" name="tags" size="40" value="{% for tag in tags %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}" class="required" /></td>
