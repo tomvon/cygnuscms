@@ -36,7 +36,10 @@
 					<td class="rowname"><label>Image{% if not ekey %}s{% endif %}</label></td>
 					<td>
 						{% if furl %}
-							<img src="{{ furl }}=s300" />
+							<img src="{{ furl }}=s300" /><br />
+							<p>You can link directy to image using the urls below. To change the image's width just change the s300 to any width you prefer, for instance s400 for a 400 pixel wide version and for square images add -c to end of the url.</p>
+							<p><a href="{{ furl }}=s300" target="_blank">{{ furl }}=s300</a></p>
+							<p><a href="{{ furl }}=s300-c" target="_blank">{{ furl }}=s300-c</a></p>
 						{% else %}
 							<input type="file" name="file" id="file" class="multi" />
 						{% endif %}
