@@ -14,8 +14,11 @@ from google.appengine.api import images
 import random
 import urllib, hashlib
 import urllib2
+import urlparse
 import lastfm
 import models
+import datetime
+import PyRSS2Gen
 
 webapp.template.register_template_library('django_extensions.extensions')
 
@@ -168,6 +171,33 @@ class PhotoHandler(BaseRequestHandler):
                 'photos': photos,
                 })
 
+class GenerateRSS(BaseRequestHandler):
+    def get(self):
+        articles = models.Article.all().order('-pubdate').fetch(9)
+        items = []
+        mostRecentDate = None
+        url_parts = list(urlparse.urlsplit(self.request.url)[0:2])
+        for article in articles:
+            if not mostRecentDate:
+                mostRecentDate = article.pubdate
+            article.rimages = [db.get(image) for image in article.images]
+            url = urlparse.urlunsplit(url_parts + ['/page/%s' % article.slug, '', ''])
+            items.append(
+                PyRSS2Gen.RSSItem(
+                  title = article.title,
+                  link = url,
+                  description = article.text,
+                  pubDate = article.pubdate))
+        rss = PyRSS2Gen.RSS2(
+             title = "RSS feed",
+             link = urlparse.urlunsplit(url_parts + ['', '', '']),
+             description = "My RSS feed",
+             lastBuildDate = mostRecentDate,
+             items = items,
+             )
+        self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write(rss.to_xml())
+     
 
 class FileHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, resource):
@@ -182,6 +212,7 @@ application = webapp.WSGIApplication(
                                      (r'/(page|tag)/(.*)', BrowseHandler),
                                      (r'/file/(.*)', FileHandler),
                                      (r'/photos/(.*)', PhotoHandler),
+                                     (r'/rss', GenerateRSS),
                                      ],
                                      debug=True)
 
