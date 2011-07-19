@@ -1,0 +1,182 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	background: #ffffff;
+	color: #666666;
+}
+
+a, a:visited {
+	color: #D48B33;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+img {
+	border: 0px;
+}
+
+#main {
+	width: 920px;
+	margin: 0px auto 100px auto;
+	overflow: hidden;
+}
+
+#header {
+	width: 920px;
+	margin: 20px 0px 10px 0px;
+	padding: 0px;
+	height: 40px;
+	overflow: hidden;
+}
+
+#header h1 {
+	margin: 0px;
+	padding: 0px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	float: left;
+	font-size: 18px;
+	line-height: 40px;
+}
+
+#header p {
+	float: right;
+}
+
+.gravatar {
+	vertical-align: middle;
+	margin: 0px 30px 0px 0px;
+}
+
+.icon {
+	margin: 0px 10px 0px 0px;
+	vertical-align: middle;
+}
+
+#content {
+	width: 920px;
+	margin: 0px;
+	background: #ffffff;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.sidebar {
+	width: 300px;
+	padding: 0px 10px 10px 10px;
+	float: left;
+}
+
+.page {
+	width: 600px;
+	padding: 0px;
+	float: left;
+}
+
+h2.index {
+	display: block;
+	font-size: 16px;
+	background: #dddddd;
+	clear: both;
+	padding: 10px;
+	margin: 0px 0px 10px 0px;
+}
+
+.box {
+	width: 300px;
+	height: 300px;
+	margin: 0px 10px 10px 0px;
+	padding: 0px;
+	background-color: #666666;
+	position: relative;
+	float: left;
+	font-size: 12px;
+	line-height: 16px;
+	color: #cccccc;
+}
+
+.sidebar .box {
+	width: 145px;
+	height: 145px;
+}
+
+.sidebar .box h2 {
+	font-size: 14px;
+}
+
+.endbox {
+	margin: 0px 0px 10px 0px;
+}
+
+.box h2 {
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: normal;
+}
+
+.box p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.box .caption {
+	padding: 10px;
+	background: url(../images/caption.png);
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.img {
+	position: relative;
+	margin: 0px 0px 10px 0px;
+	background: #dddddd;
+}
+
+.img .caption {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	padding: 0px;
+	background: url(../images/caption.png);
+	color: #cccccc;
+}
+
+.img .caption p {
+	padding: 5px;
+	margin: 0px;
+}
+
+div.text {
+	font-size: 15px;
+	line-height: 20px;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 10px 20px 10px;
+	background: #dfdfdf;
+}
+
+.tweet {
+	padding: 10px;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+#comments {
+	margin: 0px 0px 10px 10px;
+}
+
+#footer {
+	padding: 10px 0px 10px 0px;
+	margin: 0px;
+	font-size: 11px;
+	clear: both;
+}

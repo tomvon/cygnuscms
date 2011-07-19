@@ -18,7 +18,7 @@ import urlparse
 import lastfm
 import models
 import datetime
-import PyRSS2Gen
+from rss import PyRSS2Gen
 
 webapp.template.register_template_library('django_extensions.extensions')
 

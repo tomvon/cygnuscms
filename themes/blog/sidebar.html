@@ -1,0 +1,11 @@
+<div id="twocol">
+	<div class="title">
+		<h2><a href="http://twitter.com/#!/tomvon"><img src="/static/themes/{{ themeid }}/icons/icon-twitter-16.png" alt="Tom at Twitter" class="smicon" />Twitter</a></h2>
+		<p>Latest Tweets</p>
+	</div>
+	{% for tweet in tweets %}
+	<div class="tweet">
+		{{ tweet.content }}
+	</div>
+	{% endfor %}
+</div>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+	{% block content %}
+
+		<h2 class="index">Articles</h2>
+
+		{% for a in articles %}
+		<div class="ox{% if forloop.counter|divisibleby:3 %} endbox{% endif %}" style="background-image: url({% for image in a.rimages %}{% if forloop.first %}{{ image.furl }}{% endif %}{% endfor %}=s300-c)">
+			<div class="caption">
+				<h2><a href="/page/{% if a.slug %}{{ a.slug }}{% else %}{{ a.key }}{% endif %}">{{ a.title }}</a></h2>
+				<p>{{ a.text|striptags|truncatewords:20 }}</p>
+                <p>{% for tag in a.tags %}{% if forloop.first %}Tags: {% endif %}<a href="/tag/{{ tag }}">{{ tag }}</a>&nbsp;{% endfor %}<br>
+                Published on {{ a.pubdate }}</p>
+			</div>
+		</div>
+		{% endfor %}
+
+		{% if flickrphotos %}
+
+		<h2 class="index">Flickr</h2>
+
+			{% for fp in flickrphotos %}
+			<div class="box{% if forloop.counter|divisibleby:3 %} endbox{% endif %}" style="background-image: url({{ fp.url }}.jpg)">
+				<div class="caption">
+					<h2>{{ fp.title }}</h2>
+				</div>
+			</div>
+			{% endfor %}
+
+		{% endif %}
+
+		{% if tweets %}
+
+		<h2 class="index">Twitter</h2>
+
+			{% for t in tweets %}
+			<div class="box{% if forloop.counter|divisibleby:3 %} endbox{% endif %}">
+				<div class="tweet">
+					<p>{{ t.content }} : {{ t.date|date:"M d Y h:i A" }}</p>
+				</div>
+			</div>
+			{% endfor %}
+
+		{% endif %}
+
+	{% endblock %}
